@@ -17,22 +17,71 @@ import HelloWorld from './components/HelloWorld.vue'
     </div>
   </header>
 
-  <RouterView />
+  <RouterView class="RouterView" />
 </template>
 <style lang="less" scoped>
 header {
-  padding-right: 60px;
+  width: 50%;
   display: flex;
+  place-items: center;
+  padding-right: calc(var(--section-gap) / 2);
+  margin: auto;
 
-  /* align-items: center; */
   .logo {
-    margin: auto;
+    margin: 0 2rem;
   }
 
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+
+    nav {
+      padding: 1rem 0;
+    }
+
+    nav a.router-link-exact-active {
+      color: var(--color-text);
+    }
+
+    nav a.router-link-exact-active:hover {
+      background-color: transparent;
+    }
+
+    nav a {
+      display: inline-block;
+      border-left: 1px solid var(--color-border);
+      padding: 0 1rem;
+    }
+
+    nav a:first-of-type {
+      border: 0;
+      padding-left: 0;
+
+    }
+  }
 }
 
-.wrapper {
-  margin: auto;
+
+@media (min-width: 1024px) {
+  .RouterView {
+    width: 50%;
+  }
+}
+
+@media (max-width: 1024px) {
+  header {
+    width: fit-content;
+    flex-direction: column;
+    line-height: 1.5;
+    padding: 0px;
+  }
+
+  nav {
+    width: 100%;
+    font-size: 12px;
+    text-align: center;
+  }
+
 }
 </style>
 
