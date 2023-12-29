@@ -6,35 +6,23 @@ import HelloWorld from './components/HelloWorld.vue'
 <template>
   <header>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
-
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
       </nav>
     </div>
   </header>
-
   <RouterView class="RouterView" />
 </template>
 <style lang="less" scoped>
 header {
-  width: 50%;
-  display: flex;
-  place-items: center;
-  padding-right: calc(var(--section-gap) / 2);
-  margin: auto;
-
   .logo {
     margin: 0 2rem;
   }
 
   .wrapper {
-    display: flex;
-    flex-direction: column;
-
     nav {
       padding: 1rem 0;
     }
@@ -56,24 +44,33 @@ header {
     nav a:first-of-type {
       border: 0;
       padding-left: 0;
-
     }
   }
 }
 
-
+// 横屏
 @media (min-width: 1024px) {
-  .RouterView {
-    width: 50%;
+  header {
+    display: flex;
+    place-items: center;
+    padding-right: calc(var(--section-gap) / 2);
+    margin: auto 0;
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+    }
   }
 }
 
+// 竖屏
 @media (max-width: 1024px) {
   header {
-    width: fit-content;
+    // width: fit-content;
+    display: flex;
     flex-direction: column;
+    place-items: center;
     line-height: 1.5;
-    padding: 0px;
+    margin: 0 auto;
   }
 
   nav {
