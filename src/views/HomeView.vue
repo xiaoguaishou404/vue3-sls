@@ -4,9 +4,11 @@ import TheWelcome from '../components/TheWelcome.vue'
 
 <template>
   <main>
+    <!-- <RouterView /> -->
     <TheWelcome />
   </main>
 </template>
+
 <style scoped>
 main {
   margin: auto;
